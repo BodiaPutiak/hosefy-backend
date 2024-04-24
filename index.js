@@ -13,7 +13,9 @@ const port = process.env.PORT || 8080;
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://hosefy.onrender.com'
+}));
 connectDB();
 
 app.use('/', houseInfoRouter);
